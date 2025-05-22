@@ -40,6 +40,7 @@ async function migrateFromV1() {
     storageSchemaVersion: 2,
     lastSpeed: currentContent.currentSpeed,
     speedList: currentContent.speedList,
+    speedShortcuts: {},
     newTabSpeed: {
       selectedOption:
         currentContent.newtab === "custom"
