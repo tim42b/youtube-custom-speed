@@ -12,4 +12,4 @@ Now also available on [**Add-ons for Firefox**](https://addons.mozilla.org/en-US
 
 Youtube Custom Speed lets you play any Youtube video at any speed you like, from 0.0125x to 16x!
 
-Use the options menu to set your preferred playback rate values. Then, change the speed using buttons at the bottom of the video. It also cooperates with the default Youtube keyboard shortcuts - Shift + , and Shift + .
+Use the options menu to set your preferred playback rate values. Then, change the speed using buttons at the bottom of the video. It also cooperates with the default Youtube keyboard shortcuts - Shift + , and Shift + . You can now assign your own keyboard shortcut to each speed in the list from the options page.

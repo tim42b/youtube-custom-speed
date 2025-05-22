@@ -9,6 +9,8 @@ export interface StorageContent {
   storageSchemaVersion: 2;
   lastSpeed: number;
   speedList: number[];
+  /** Map of speed value to shortcut string */
+  speedShortcuts: Record<string, string>;
   newTabSpeed: SingleChoiceSettingStorage<
     "normal" | "last" | "doNothing",
     number
