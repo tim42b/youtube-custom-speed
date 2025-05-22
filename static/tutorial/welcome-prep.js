@@ -7,16 +7,5 @@ function optionsClick(e) {
     });
 }
 
-function shortcutOptionsClick(e) {
-    chrome.tabs.create({
-        url: 'chrome://extensions/shortcuts'
-    });
-}
-
-function settingsClick(e) {
-    chrome.tabs.create({
-        url: 'chrome://extensions/?id=' + chrome.runtime.id
-    });
-}
+// Removed unused handlers for Chrome shortcut and settings pages
 document.querySelector('#ext-options').addEventListener('click', optionsClick);
-// document.querySelector('#chrome-settings').addEventListener('click', settingsClick);

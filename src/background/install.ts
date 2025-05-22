@@ -9,6 +9,7 @@ async function initializeStorage() {
     storageSchemaVersion: 2,
     lastSpeed: 1,
     speedList: [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 5, 16],
+    speedShortcuts: {},
     newTabSpeed: {
       selectedOption: "normal",
       isCustomSelected: false,
