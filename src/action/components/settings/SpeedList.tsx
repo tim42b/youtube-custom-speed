@@ -1,4 +1,5 @@
 import { useStorage } from "@/hooks/useStorage";
+import { formatShortcut } from "@/utils/keyboardShortcut";
 import {
   Box,
   Button,
@@ -13,6 +14,10 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage("speedList", [] as number[]);
+  const [speedShortcuts, setSpeedShortcuts] = useStorage(
+    "speedShortcuts",
+    {} as Record<string, string>,
+  );
   const [newValue, setNewValue] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
@@ -38,13 +43,18 @@ function SpeedList() {
     }
 
     setSpeedList((current) =>
-      [...current, valueParsed].toSorted((a, b) => a - b)
+      [...current, valueParsed].toSorted((a, b) => a - b),
     );
     setNewValue("");
   };
 
   const handleDelete = (value: number) => {
     setSpeedList((current) => current.filter((speed) => speed !== value));
+    setSpeedShortcuts((current) => {
+      const newMap = { ...current };
+      delete newMap[value];
+      return newMap;
+    });
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -72,13 +82,42 @@ function SpeedList() {
         }}
       >
         {speedList.map((speed) => (
-          <Chip
+          <Box
             key={speed}
-            size="lg"
-            endDecorator={<ChipDelete onDelete={() => handleDelete(speed)} />}
+            sx={{ display: "flex", alignItems: "center", gap: 1 }}
           >
-            {`${speed}x`}
-          </Chip>
+            <Chip
+              size="lg"
+              endDecorator={<ChipDelete onDelete={() => handleDelete(speed)} />}
+            >
+              {`${speed}x`}
+            </Chip>
+            <Input
+              readOnly
+              placeholder="Shortcut"
+              value={speedShortcuts[speed] ?? ""}
+              onKeyDown={(e) => {
+                e.preventDefault();
+                const value = formatShortcut(e);
+                setSpeedShortcuts((curr) => ({ ...curr, [speed]: value }));
+              }}
+              sx={{ width: 160 }}
+            />
+            {speedShortcuts[speed] && (
+              <Button
+                size="sm"
+                onClick={() =>
+                  setSpeedShortcuts((curr) => {
+                    const map = { ...curr };
+                    delete map[speed];
+                    return map;
+                  })
+                }
+              >
+                Clear
+              </Button>
+            )}
+          </Box>
         ))}
       </Box>
       <Box sx={{ alignSelf: "flex-start" }}>
