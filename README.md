@@ -1,5 +1,10 @@
 # Youtube Custom Speed ⏩
 
+
+I edited this to allow for the use of keyboard shortcuts with the speeds.  Seems to work fine.
+
+
+
 Youtube Custom Speed is a browser extension which allows you to easily change YouTube playback rate to a custom value.
 
 Currently available on the [**Chrome Web Store**](https://chrome.google.com/webstore/detail/kmfcinojnfabkpndlgomnfjllgeppegb) with over 10,000 users and a 4.7 ⭐ average rating.
