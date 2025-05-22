@@ -19,7 +19,7 @@ async function injectReact() {
   reactRoot.render(
     <CacheProvider value={cache}>
       <App />
-    </CacheProvider>
+    </CacheProvider>,
   );
 }
 

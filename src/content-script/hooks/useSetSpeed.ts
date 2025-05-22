@@ -17,7 +17,7 @@ function useSetSpeed() {
 
       setLastSpeed(speed);
     },
-    [setLastSpeed]
+    [setLastSpeed],
   );
 
   const decreaseSpeed = useCallback(() => {

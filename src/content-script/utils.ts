@@ -16,6 +16,6 @@ export function getBezelText() {
 
 export function getMenu() {
   return document.querySelector<HTMLDivElement>(
-    '.ytp-menuitem:has(path[d^="M10,8v8l6"])'
+    '.ytp-menuitem:has(path[d^="M10,8v8l6"])',
   );
 }

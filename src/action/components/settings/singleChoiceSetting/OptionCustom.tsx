@@ -8,7 +8,7 @@ import { OptionProps } from "./Option";
 import Radio from "./Radio";
 
 function OptionCustom<T extends keyof StorageSettings>(
-  _props: OptionProps<T, SingleChoiceOptionCustom>
+  _props: OptionProps<T, SingleChoiceOptionCustom>,
 ) {
   const [storageValue, setStorageValue] = useStorage(_props.storageKey, null);
 

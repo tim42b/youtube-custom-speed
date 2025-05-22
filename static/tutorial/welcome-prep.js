@@ -9,7 +9,4 @@ function optionsClick() {
   });
 }
 
-document
-  .querySelector("#ext-options")
-  .addEventListener("click", optionsClick);
-
+document.querySelector("#ext-options").addEventListener("click", optionsClick);

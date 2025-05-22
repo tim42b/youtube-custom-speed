@@ -11,7 +11,7 @@ function injectReact() {
   reactRoot.render(
     <ThemeProvider>
       <App />
-    </ThemeProvider>
+    </ThemeProvider>,
   );
 }
 

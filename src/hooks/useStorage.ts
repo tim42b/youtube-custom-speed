@@ -15,7 +15,7 @@ type StateValue<T extends keyof StorageContent, D> =
 export function useStorage<D, T extends keyof StorageContent>(
   key: T,
   initialValue: D,
-  area: AreaName = "sync"
+  area: AreaName = "sync",
 ): [StorageContent[T] | D, SetValue<StorageContent[T]>] {
   const [storedValue, setStoredValue] = useState<StateValue<T, D>>({
     isInitial: true,
@@ -51,7 +51,7 @@ export function useStorage<D, T extends keyof StorageContent>(
         value instanceof Function ? value(storedValue.value) : value;
       setStorage(key, newValue, area);
     },
-    [area, key, storedValue.isInitial, storedValue.value]
+    [area, key, storedValue.isInitial, storedValue.value],
   );
 
   return [storedValue.value, setValue];
@@ -59,7 +59,7 @@ export function useStorage<D, T extends keyof StorageContent>(
 
 export async function readStorage<T extends keyof StorageContent>(
   key: T,
-  area: AreaName = "local"
+  area: AreaName = "local",
 ): Promise<StorageContent[T]> {
   const result = await chrome.storage[area].get(key);
   return result?.[key];
@@ -68,7 +68,7 @@ export async function readStorage<T extends keyof StorageContent>(
 export async function setStorage<T extends keyof StorageContent>(
   key: T,
   value: StorageContent[T],
-  area: AreaName = "local"
+  area: AreaName = "local",
 ): Promise<void> {
   await chrome.storage[area].set({ [key]: value });
 }

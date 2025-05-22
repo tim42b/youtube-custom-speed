@@ -16,7 +16,7 @@ interface SingleChoiceSettingPropsCustom<T extends keyof StorageSettingsCustom>
   transformCustomInput?: (newValue: string, oldValue: string) => string;
   parseCustomValue: (value: string) => StorageSettings[T]["customValue"];
   validateCustom?: (
-    value: StorageSettings[T]["customValue"]
+    value: StorageSettings[T]["customValue"],
   ) => string | undefined;
 }
 
@@ -26,7 +26,7 @@ export type SingleChoiceSettingProps<T extends keyof StorageSettings> =
     : SingleChoiceSettingPropsPredefined<T>;
 
 function SingleChoiceSetting<T extends keyof StorageSettings>(
-  props: SingleChoiceSettingProps<T>
+  props: SingleChoiceSettingProps<T>,
 ) {
   const { options, ...otherProps } = props;
 

@@ -71,7 +71,7 @@ const theme = extendTheme({
     Object.entries(fontSizeOriginal).map(([key, value]) => [
       key,
       `${(value * 14) / 16}rem`,
-    ])
+    ]),
   ),
   components: {
     JoyTypography: {

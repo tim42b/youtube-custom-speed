@@ -3,7 +3,7 @@ const msg = chrome.i18n.getMessage;
 export const supportUrl = "https://www.buymeacoffee.com/nizioleque";
 
 export const reviewUrl = `https://chrome.google.com/webstore/detail/${msg(
-  "extNameURL"
+  "extNameURL",
 )}/${msg("@@extension_id")}/reviews`;
 
 export const bugReportURL = `

@@ -27,7 +27,7 @@ function useSetInitialSpeed() {
           break;
       }
     },
-    [lastSpeed, setSpeed]
+    [lastSpeed, setSpeed],
   );
 
   useEffect(() => {

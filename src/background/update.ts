@@ -9,7 +9,7 @@ async function migrateStorage() {
   const _currentSchemaVersion: StorageContent["storageSchemaVersion"] = 2;
 
   const { storageSchemaVersion } = await chrome.storage.sync.get(
-    "storageSchemaVersion"
+    "storageSchemaVersion",
   );
 
   if (!storageSchemaVersion) await migrateFromV1();
